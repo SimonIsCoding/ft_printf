@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:03:29 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/30 17:38:56 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:40:47 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,21 @@ int	main(void)
 	return (0);
 }
 */
+/*
+int	main(void)
+{
+	int	count;
 
+	count = 0;
+	printf("-----PRINTF----\n");
+	count = printf("%i%ii%i", 1, 2, -3);
+	printf("\n_printf : %d_\n", count);
+
+	count = 0;
+	ft_printf("----MY TEST----\n");
+	count = ft_printf("%i%ii%i", 1, 2, -3);
+	ft_printf("\n_mytest : %d_", count);
+	
+	return (0);
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 17:13:27 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/30 17:32:14 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:42:20 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_putstr(char *s)
 	return (ft_strlen(s));
 }
 
-int	ft_putchar(char c)
+int	ft_putchar(int c)
 {
 	if (write(1, &c, 1) == -1)
 		return (-1);

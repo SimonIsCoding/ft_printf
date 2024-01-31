@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:38:01 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/30 20:43:49 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:29:02 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,35 +40,46 @@ int	ft_format(char c, va_list args, int ctr)
 	return (ctr);
 }
 
-int	ft_printf(const char *str, ...)
+int	ft_printf_inner(const char *str, va_list args, int *ctr, int *percent)
 {
-	va_list	args;
-	int		i;
-	int		ctr;
-	int		percent;
-	int		var;
+	int	i;
+	int	var;
 
-	va_start(args, str);
 	i = -1;
-	ctr = 0;
-	percent = 0;
+	var = 0;
 	while (str[++i] != '\0')
 	{
 		var = 0;
 		if (str[i] != '%')
 		{
-			if (ft_putchar(str[i]) == -1)
+			if (write(1, &str[i], 1) == -1)
 				return (-1);
 		}
 		else
 		{
-			var = ft_format(str[++i], args, ctr);
+			var = ft_format(str[++i], args, *ctr);
 			if (var == -1)
 				return (-1);
-			ctr += var;
-			percent++;
+			*ctr += var;
+			(*percent)++;
 		}
 	}
+	return (i);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	va_list	args;
+	int		ctr;
+	int		percent;
+	int		result;
+
+	va_start(args, str);
+	ctr = 0;
+	percent = 0;
+	result = ft_printf_inner(str, args, &ctr, &percent);
 	va_end(args);
-	return (i + ctr - (percent * 2));
+	if (result == -1)
+		return (-1);
+	return (result + ctr - (percent * 2));
 }

@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:04:33 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/30 17:32:33 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:29:21 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 
 int	ft_strlen(const char *s);
 int	ft_putstr(char *s);
-int	ft_putchar(char c);
+int	ft_putchar(int c);
 int	ft_format(char c, va_list args, int ctr);
+int	ft_printf_inner(const char *str, va_list args, int *ctr, int *percent);
 int	ft_printf(const char *str, ...);
 int	ft_putnbr_counter(int nb);
 int	ft_putnbr(int nb);

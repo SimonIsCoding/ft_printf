@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 17:09:35 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/30 20:48:13 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:26:05 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,32 +45,30 @@ int	ft_putnbr_max(int nb)
 
 int	ft_putnbr(int nb)
 {
-	char	x;
-	int		check;
+	int	temp;
 
-	check = 0;
+	temp = nb;
 	if (nb == -2147483648)
 		return (ft_putnbr_max(nb));
-	else if (nb < 0)
-	{
-		if (write(1, "-", 1) == -1)
-			return (-1);
-		check = 1;
-		if (ft_putnbr(nb * -1) == -1)
-			return (-1);
-	}
-	else if (nb >= 10)
-	{
-		if (ft_putnbr(nb / 10) == -1)
-			return (-1);
-		x = (nb % 10) + '0';
-	}
 	else
-		x = (nb % 10) + '0';
-	if (check != 1)
-		if (ft_putchar((int)x) == -1)
-			return (-1);
-	return (ft_putnbr_counter(nb));
+	{
+		if (nb < 0)
+		{
+			if (write(1, "-", 1) == -1)
+				return (-1);
+			nb = -nb;
+		}
+		if (nb >= 10)
+		{
+			if (ft_putnbr(nb / 10) == -1)
+				return (-1);
+			nb = nb % 10;
+		}
+		if (nb < 10)
+			if (ft_putchar((int)nb + 48) == -1)
+				return (-1);
+	}
+	return (ft_putnbr_counter(temp));
 }
 
 int	ft_putunsigned_counter(unsigned int nb)
