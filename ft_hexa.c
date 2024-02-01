@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:55:15 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/30 20:01:52 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:44:46 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,13 @@ int	ft_puthexadecimal_counter(unsigned long long nb)
 	return (i);
 }
 
-int	ft_puthexadecimal(unsigned int nb)
+int	ft_puthexadecimal(unsigned int nb, char *s)
 {
-	char	*s;
 	char	x;
 
-	s = "0123456789abcdef";
 	if (nb >= 16)
 	{
-		if (ft_puthexadecimal(nb / 16) == -1)
+		if (ft_puthexadecimal(nb / 16, s) == -1)
 			return (-1);
 		x = s[(nb % 16)];
 	}
@@ -45,15 +43,13 @@ int	ft_puthexadecimal(unsigned int nb)
 	return (ft_puthexadecimal_counter(nb));
 }
 
-int	ft_puthexadecimal_upper(unsigned int nb)
+int	ft_puthexadecimal_long(unsigned long long nb, char *s)
 {
-	char	*s;
 	char	x;
 
-	s = "0123456789ABCDEF";
 	if (nb >= 16)
 	{
-		if (ft_puthexadecimal_upper(nb / 16) == -1)
+		if (ft_puthexadecimal_long(nb / 16, s) == -1)
 			return (-1);
 		x = s[(nb % 16)];
 	}
@@ -64,29 +60,10 @@ int	ft_puthexadecimal_upper(unsigned int nb)
 	return (ft_puthexadecimal_counter(nb));
 }
 
-int	ft_puthexadecimal_long(unsigned long long nb)
-{
-	char	*s;
-	char	x;
-
-	s = "0123456789abcdef";
-	if (nb >= 16)
-	{
-		if (ft_puthexadecimal_long(nb / 16) == -1)
-			return (-1);
-		x = s[(nb % 16)];
-	}
-	else
-		x = s[nb];
-	if (write(1, &x, 1) == -1)
-		return (-1);
-	return (ft_puthexadecimal_counter(nb));
-}
-
-int	ft_putpointer(unsigned long long nb)
+int	ft_pointer(unsigned long long nb, char *s)
 {
 	if (write(1, "0x", 2) == -1)
 		return (-1);
-	ft_puthexadecimal_long(nb);
+	ft_puthexadecimal_long(nb, s);
 	return (ft_puthexadecimal_counter(nb) + 2);
 }

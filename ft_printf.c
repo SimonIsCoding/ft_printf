@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 09:38:01 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/31 12:29:02 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:44:41 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	ft_format(char c, va_list args, int ctr)
 	else if (c == 'u')
 		ctr = ft_putunsigned(va_arg(args, unsigned int));
 	else if (c == 'x')
-		ctr = ft_puthexadecimal(va_arg(args, unsigned int));
+		ctr = ft_puthexadecimal(va_arg(args, unsigned int), "0123456789abcdef");
 	else if (c == 'X')
-		ctr = ft_puthexadecimal_upper(va_arg(args, unsigned int));
+		ctr = ft_puthexadecimal(va_arg(args, unsigned int), "0123456789ABCDEF");
 	else if (c == '%')
 	{
 		if (write(1, "%", 1) == -1)
@@ -34,7 +34,7 @@ int	ft_format(char c, va_list args, int ctr)
 		ctr++;
 	}
 	else if (c == 'p')
-		ctr = ft_putpointer(va_arg(args, unsigned long long));
+		ctr = ft_pointer(va_arg(args, unsigned long long), "0123456789abcdef");
 	else
 		return (-1);
 	return (ctr);
