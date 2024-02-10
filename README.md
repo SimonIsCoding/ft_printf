@@ -11,3 +11,9 @@ It exists many ways to do it. Do whatever you want but I suggest to:
 
 you can do as well %% before %c
 Understand well the notion of variadic function and how to use it 
+
+Advices to succeed this project:
+1) Know how to count well => if you think your counter is correct, think twice, until being sure.
+2) protect your writes
+3) protect the recursive function that you call
+4) watch out the type of your functions => be sure that the type is correct. Moreover, be sure that the same type of your parameter is not changing when you use it for other fonctions.
