@@ -13,7 +13,7 @@ you can do as well %% before %c<br>
 Understand well the notion of variadic function and how to use it <br>
 <br>
 Advices to succeed this project:<br>
-0) Before starting writing the function, I will suggest you to create a lot of main. And make the most easy to understand well what the functions is doing.<br>
+0) Before starting writing the function, I will suggest you to create a lot of main. And make the most easy to understand well what the functions is doing.
 1) Know how to count well => if you think your counter is correct, think twice, until being sure.<br>
 2) protect your writes<br>
 3) protect the recursive function that you call<br>
