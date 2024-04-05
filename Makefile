@@ -1,34 +1,32 @@
-NAME	= libftprintf.a
+NAME		= libftprintf.a
+CFLAGS		= -Wall -Wextra -Werror
+CC			= cc
+RM			= rm -f
 
-CFLAGS	= -Wall -Wextra -Werror
+HEADER		= ft_printf.h
 
-CC		= cc
+SRC			= ft_printf.c	\
+			  ft_hexa.c		\
+			  ft_nbr.c		\
+			  ft_str.c		\
+			  utils/libft/ft_strlen.c
 
-HEADER	= ft_printf.h
+OBJ			= $(SRC:.c=.o)
 
-SRC		= ft_printf.c	\
-		  ft_hexa.c		\
-		  ft_nbr.c		\
-		  ft_str.c
+all:		$(NAME)
 
-RM		= rm -f
+$(NAME): 	$(OBJ)
+			@ar rcs $(NAME) $(OBJ)
 
-OBJ		= $(SRC:.c=.o)
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
-
-%.o: %.c Makefile $(HEADER)
-	$(CC) $(FLAGS) -c $< -o ${<:.c=.o}
+%.o: 		%.c Makefile $(HEADER)
+			$(CC) $(FLAGS) -c $< -o ${<:.c=.o}
 
 clean:
-	$(RM) $(OBJ)
+			$(RM) $(OBJ)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean:		clean
+			$(RM) $(NAME)
 
-re:	fclean all
+re:			fclean all
 
 .PHONY: all, clean, fclean, re

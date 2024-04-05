@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 17:13:27 by simarcha          #+#    #+#             */
-/*   Updated: 2024/04/05 20:28:53 by simarcha         ###   ########.fr       */
+/*   Created: 2024/01/20 16:46:27 by simarcha          #+#    #+#             */
+/*   Updated: 2024/01/20 17:05:03 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <unistd.h>
+#include "libft.h"
 
-int	ft_putstr(char *s)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
-	{
-		if (write(1, "(null)", 6) == -1)
-			return (-1);
-		return (6);
-	}
-	if (write(1, s, ft_strlen(s)) == -1)
-		return (-1);
-	return (ft_strlen(s));
-}
+	int	i;
 
-int	ft_putchar(int c)
-{
-	if (write(1, &c, 1) == -1)
-		return (-1);
-	return (1);
+	i = -1;
+	while (s[++i] != '\0')
+		write(fd, &s[i], 1);
 }
+/*
+int	main(void)
+{
+	char	s[30] = "This is a test";
+	ft_putstr_fd(s, 1);
+	return (0);
+}*/

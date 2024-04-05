@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 17:13:27 by simarcha          #+#    #+#             */
-/*   Updated: 2024/04/05 20:28:53 by simarcha         ###   ########.fr       */
+/*   Created: 2024/01/20 17:06:06 by simarcha          #+#    #+#             */
+/*   Updated: 2024/01/20 17:40:53 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <unistd.h>
+#include "libft.h"
 
-int	ft_putstr(char *s)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (!s)
-	{
-		if (write(1, "(null)", 6) == -1)
-			return (-1);
-		return (6);
-	}
-	if (write(1, s, ft_strlen(s)) == -1)
-		return (-1);
-	return (ft_strlen(s));
-}
-
-int	ft_putchar(int c)
-{
-	if (write(1, &c, 1) == -1)
-		return (-1);
-	return (1);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

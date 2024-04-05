@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 17:13:27 by simarcha          #+#    #+#             */
-/*   Updated: 2024/04/05 20:28:53 by simarcha         ###   ########.fr       */
+/*   Created: 2024/01/09 12:33:26 by simarcha          #+#    #+#             */
+/*   Updated: 2024/01/09 13:31:57 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+//#include <stdio.h>
 
-int	ft_putstr(char *s)
+int	ft_isalpha(int c)
 {
-	if (!s)
-	{
-		if (write(1, "(null)", 6) == -1)
-			return (-1);
-		return (6);
-	}
-	if (write(1, s, ft_strlen(s)) == -1)
-		return (-1);
-	return (ft_strlen(s));
+	if ((c >= 65 && c <= 90) || (c > 96 && c < 123))
+		return (1);
+	else
+		return (0);
 }
+/*
+int	main(void)
+{
+	int	c;
+	int	i;
 
-int	ft_putchar(int c)
-{
-	if (write(1, &c, 1) == -1)
-		return (-1);
-	return (1);
-}
+	c = 5;
+	i = ft_isalpha(c);
+	printf("%d\n", i);
+	return (0);
+}*/

@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 17:13:27 by simarcha          #+#    #+#             */
-/*   Updated: 2024/04/05 20:28:53 by simarcha         ###   ########.fr       */
+/*   Created: 2024/01/10 17:27:50 by simarcha          #+#    #+#             */
+/*   Updated: 2024/01/12 11:08:50 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(char *s)
+int	ft_tolower(int c)
 {
-	if (!s)
-	{
-		if (write(1, "(null)", 6) == -1)
-			return (-1);
-		return (6);
-	}
-	if (write(1, s, ft_strlen(s)) == -1)
-		return (-1);
-	return (ft_strlen(s));
-}
-
-int	ft_putchar(int c)
-{
-	if (write(1, &c, 1) == -1)
-		return (-1);
-	return (1);
+	if (c > 64 && c < 91)
+		c += 32;
+	return (c);
 }

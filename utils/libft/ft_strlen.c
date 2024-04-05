@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 17:13:27 by simarcha          #+#    #+#             */
-/*   Updated: 2024/04/05 20:28:53 by simarcha         ###   ########.fr       */
+/*   Created: 2024/01/09 13:42:05 by simarcha          #+#    #+#             */
+/*   Updated: 2024/01/12 11:22:35 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+//#include <stdio.h>
+//#include <stddef.h>
+#include "libft.h"
 
-int	ft_putstr(char *s)
+size_t	ft_strlen(const char *s)
 {
-	if (!s)
-	{
-		if (write(1, "(null)", 6) == -1)
-			return (-1);
-		return (6);
-	}
-	if (write(1, s, ft_strlen(s)) == -1)
-		return (-1);
-	return (ft_strlen(s));
-}
+	size_t	i;
 
-int	ft_putchar(int c)
-{
-	if (write(1, &c, 1) == -1)
-		return (-1);
-	return (1);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
+/*
+int	main(void)
+{
+	const char	*str;
+	int	i;
+
+	str = "This is a test";
+	i = ft_strlen(str);
+	printf("%d\n", i);
+	return (0);
+}*/
