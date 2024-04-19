@@ -9,7 +9,7 @@ SRC			= ft_printf.c	\
 			  ft_hexa.c		\
 			  ft_nbr.c		\
 			  ft_str.c		\
-			  utils/libft/ft_strlen.c
+			  libft/ft_strlen.c
 
 OBJ			= $(SRC:.c=.o)
 

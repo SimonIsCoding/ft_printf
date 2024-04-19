@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:04:33 by simarcha          #+#    #+#             */
-/*   Updated: 2024/04/05 20:47:19 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/04/19 19:55:28 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-# include "utils/libft/libft.h"
+# include "libft/libft.h"
 
 int	ft_putstr(char *s);
 int	ft_putchar(int c);
