@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:03:29 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/31 12:40:47 by simarcha         ###   ########.fr       */
+/*   Updated: 2025/02/02 17:37:31 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,3 +125,16 @@ int	main(void)
 	return (0);
 }
 */
+/*
+#include <fcntl.h>
+#include <unistd.h>
+int	main(void)
+{
+	close(STDOUT_FILENO);
+	int x = printf("Hello World!\n");
+	int y = ft_printf("Hello World!\n");
+	freopen("/dev/tty", "w", stdout);
+	printf("LIB : x = %i\n", x);
+	printf("MINE: y = %i\n", y);
+	return (0);
+}*/
