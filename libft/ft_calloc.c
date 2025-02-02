@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:27:38 by simarcha          #+#    #+#             */
-/*   Updated: 2024/01/17 12:07:43 by simarcha         ###   ########.fr       */
+/*   Updated: 2025/02/02 14:45:06 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	char	*str;
-	int		i;
 
-	i = 0;
 	str = (void *)malloc(count * size);
 	if (!(str))
 		return (NULL);
